@@ -8,13 +8,25 @@ Ejemplos:
 "the string 'hello world' is not an isogram"
 */
 export function exercise19(string) {
-  // Escribe tu solución aquí
+ const ocurrencias = lettersOcurrences(string);
+
+ const valores = Object.values(ocurrencias);
+ const isIsogram = valores.every(v => v=== valores[0]);
 
   return `the string '${string}' is ${isIsogram ? "" : "not "}an isogram`;
 }
 
 function lettersOcurrences(string) {
-  // Función ayudante sugerida que devuelve un objeto
-  // donde las claves son las letras y los valores son
-  // el número de veces que aparecen en la cadena (string)
+  const resultado = {};
+  const texto = string
+  .toLowerCase()
+  .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z]/g, "")
+  
+
+  for( const letra of texto){
+    resultado[letra] = (resultado[letra] || 0) +1;
+  }
+  return resultado;
 }

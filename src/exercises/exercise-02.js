@@ -5,7 +5,15 @@ Muestra el siguiente mensaje dependiendo de si un número es par o impar:
 Nota: even = par | odd = impar
 */
 export function exercise02(number) {
-  // Escribe tu solución aquí
+  let result =0;
+  if(number %2===0){
+    result= "even";
+
+  } else{
+    result= "odd";
+  }
 
   return `Number ${number} is ${result}`;
 }
+console.log(exercise02(10));
+

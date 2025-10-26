@@ -10,5 +10,15 @@ Nota: asegurate que no hay titulos duplicados
 export function exercise16(movies) {
   const actors = ["Leonardo DiCaprio", "Robert De Niro", "Tom Hanks"];
 
-  // Escribe tu solución aquí
+  const mejoresPorActor = actors.map(actor=>{
+    const peliculasDelActor = movies.filter(movie =>
+      movie.actors.includes(actor)
+    );
+    const mejorValorada = peliculasDelActor.reduce((mejor, actual) => actual.rating > mejor.rating ? actual : mejor);
+    return mejorValorada.title;
+  });
+
+  return [...new Set(mejoresPorActor)];
 }
+
+

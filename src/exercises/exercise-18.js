@@ -16,5 +16,16 @@ Ejemplo: "Hello world"
 Nota: siempre letras minúsculas y sin tildes (para simplificar)
 */
 export function exercise18(string) {
-  // Escribe tu solución aquí
+  const resultado = {};
+  const texto = string
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z]/g, "");
+
+  for (const letra of texto){
+    resultado[letra] = (resultado[letra] || 0) +1;
+  }
+
+return resultado;
 }
