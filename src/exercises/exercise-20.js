@@ -16,9 +16,30 @@ Nota: evita llamar a la función con números altos en la versión recursiva.
 */
 
 export function exercise20(n) {
-  // Escribe tu solución aquí
+  if(n<0) return undefined;
+  if(n ===0) return 0;
+  if (n ===1) return 1;
+  return exercise20(n-1) + exercise20(n-2);
 }
 
 export function exercise20Iterative(n) {
-  // Escribe tu solución aquí
+  if (n<0) return undefined;
+  if (n===0) return 0;
+  if( n ===1) return 1;
+
+  let prev = 0;
+  let curr = 1;
+
+  for( let i=2; i<=n; i++){
+    const next = prev + curr;
+    prev = curr;
+    curr = next;
+
+  }
+  return curr;
 }
+
+console.log(exercise20(20));
+console.log(exercise20Iterative(20));
+
+ 

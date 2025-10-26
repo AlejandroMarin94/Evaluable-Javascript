@@ -10,8 +10,14 @@ Ejemplos:
   exercise05('function') // result: "FUuNnnCcccTttttIiiiiiOooooooNnnnnnnn"
 */
 export function exercise05(string) {
-  // Escribe tu solución aquí
-  const result = "";
+  let result = "";
+  for(let i=0; i<string.length; i++){
+    const char = string[i];
+    const repeat = char.toUpperCase()+char.toLowerCase().repeat(i);
+    result+= repeat;
+  }
 
   return result;
 }
+
+console.log(exercise05("code"));
